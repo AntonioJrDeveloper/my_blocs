@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:my_blocs/config/blocs/blocs.dart';
+import 'package:my_blocs/config/design/theme.dart';
 import 'package:my_blocs/config/routers/app_routes.dart';
-import 'package:my_blocs/ui/pages/pages.dart';
+import 'package:my_blocs/config/web_desktop/app_scroll_behavior.dart';
 
 class MyBlocsProviders extends StatelessWidget {
   const MyBlocsProviders({
@@ -20,6 +21,9 @@ class MyBlocsProviders extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => ThemeBloc(),
+        ),
+        BlocProvider(
+          create: (_) => NavBarPageBloc(),
         )
       ],
       child: const MyApp(),
@@ -32,22 +36,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool theme = context.watch<ThemeBloc>().state.theme;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'My Blocs',
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case AppRoutes.counterPage:
-            return MaterialPageRoute(builder: (_) => const CounterPage());
-          case AppRoutes.themePage:
-            return MaterialPageRoute(builder: (_) => const ThemePage());
-          default:
-            return MaterialPageRoute(builder: (_) => const HomePage());
-        }
-      },
-      theme: ThemeData(
-        brightness: theme ? Brightness.light : Brightness.dark,
-      ),
-    );
+    return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        scrollBehavior: AppScrollBehavior(),
+        title: 'My Blocs',
+        routerConfig: AppRoutes.appRouter,
+        theme: theme ? MyTheme.lightTheme : MyTheme.darkTheme);
   }
 }
