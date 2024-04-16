@@ -1,16 +1,8 @@
-# my_blocs
+# My_Blocs
 
-A new Flutter project.
+Esta aplicación se realizo para comprender el patrón bloc, con lo cual se agregaron tres blocs:
+- Nav_bar_page: Maneja el cambio del index de la página.
+- Counter: Maneja un contador de increment como decrement.
+- Theme: Maneja el theme de la app.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://github.com/AntonioJrDeveloper/my_blocs/assets/112713650/1e688006-9969-4da9-a53e-f4682d5d169d
